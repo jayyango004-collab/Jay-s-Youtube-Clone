@@ -12,22 +12,29 @@
 
 <body>
 
-<!-- HEADER -->
 <header class="header">
 
   <div class="left">
-    <i id="menuBtn" class="fa-solid fa-bars"></i>
+    <i class="fa-solid fa-bars"></i>
     <i class="fa-brands fa-youtube yt"></i>
     <h3>YouTube</h3>
   </div>
 
-  <div class="search">
+<div class="search">
+  <div class="search-box">
     <input id="searchInput" placeholder="Search"/>
-    <button><i class="fa fa-search"></i></button>
+
+    <button class="search-btn">
+      <i class="fa fa-search"></i>
+    </button>
   </div>
 
-  <div class="right">
+  <button class="mic-btn">
+    <i class="fa-solid fa-microphone"></i>
+  </button>
+</div>
 
+  <div class="right">
     <span class="material-symbols-outlined">video_call</span>
 
     <div class="notification-container">
@@ -36,69 +43,113 @@
     </div>
 
     <img src="images/profile.jpg" class="profile-pic"/>
-
     <button id="darkBtn"><i class="fa-solid fa-moon"></i></button>
   </div>
 
 </header>
 
-<!-- LAYOUT -->
 <div class="layout">
 
 <!-- SIDEBAR -->
 <aside id="sidebar" class="sidebar">
 
+  <!-- MAIN -->
   <div class="section">
-    <p><i class="fa-solid fa-house"></i> Home</p>
-    <p><i class="fa-solid fa-bolt"></i> Shorts</p>
-    <p><i class="fa-solid fa-play"></i> Subscriptions</p>
+    <p class="item"><i class="fa-solid fa-house"></i> Home</p>
+    <p class="item"><i class="fa-solid fa-bolt"></i> Shorts</p>
+    <p class="item"><i class="fa-solid fa-play"></i> Subscriptions</p>
   </div>
 
   <hr/>
 
   <!-- SUBSCRIPTIONS -->
   <div class="section">
-    <p id="subsBtn">Subscriptions <span id="subsArrow">▶</span></p>
 
-<div id="subsList" class="subs-list hidden">
-  <div class="sub">Kaycee Rice</div>
-  <div class="sub">Travis Stancil</div>
-  <div class="sub">Ballet Co</div>
-  <div class="sub">Nollywood Movies</div>
-</div>
-   
+    <p id="subsBtn" class="toggle">
+      Subscriptions <span class="arrow">▶</span>
+    </p>
+
+    <div id="subsList" class="sub-list hidden">
+
+      <p class="sub-item">Kaycee Rice</p>
+      <p class="sub-item">Travis Stancil with Stance Productions</p>
+      <p class="sub-item">Paradosi Ballet Company</p>
+      <p class="sub-item">YUMMY NOLLYWOOD MOVIES</p>
+      <p class="sub-item">Echelonemporiotm</p>
+      <p class="sub-item">BodyKinect by Kendall</p>
+      <p class="sub-item">Hillsong Church Africa</p>
+      <p class="sub-item">3C Live Official</p>
+      <p class="sub-item">Julia Michaels</p>
+      <p class="sub-item">Start Up De Acasa</p>
+      <p class="sub-item">Gurpreet Illusion Town</p>
+      <p class="sub-item">YAWA SKITS</p>
+      <p class="sub-item">Tamaris</p>
+      <p class="sub-item">Spoke</p>
+      <p class="sub-item">Maizen</p>
+
+      <p class="sub-item small">Show fewer</p>
+
+    </div>
+  </div>
+
   <hr/>
 
   <!-- YOU -->
   <div class="section">
-    <p id="youBtn">You ▶</p>
-    <div id="youList" class="hidden">
-      <p>History</p>
-      <p>Watch Later</p>
-      <p>Liked Videos</p>
+
+    <p id="youBtn" class="toggle">
+      You <span class="arrow">▶</span>
+    </p>
+
+    <div id="youList" class="sub-list hidden">
+
+      <p class="sub-item">Your channel</p>
+      <p class="sub-item">History</p>
+      <p class="sub-item">Playlists</p>
+      <p class="sub-item">Watch Later</p>
+      <p class="sub-item">Liked videos</p>
+      <p class="sub-item">Your videos</p>
+      <p class="sub-item">Downloads</p>
+
     </div>
+  </div>
+
+  <hr/>
+
+  <!-- EXPLORE -->
+  <div class="section">
+    <p class="title">Explore</p>
+    <p class="item">Music</p>
+    <p class="item">Gaming</p>
+    <p class="item">News</p>
+    <p class="item">Show more</p>
+  </div>
+
+  <hr/>
+
+  <!-- FOOTER -->
+  <div class="section footer">
+    <p>About • Press • Copyright</p>
+    <p>Terms • Privacy • Policy</p>
+    <p>© 2026 Google LLC</p>
   </div>
 
 </aside>
 
+  
 <!-- MAIN -->
 <main class="main">
 
-  <div class="categories" id="categories"></div>
+<section id="videoGrid"></section>
 
-  <section id="videoGrid"></section>
+<section class="shorts-section">
+  <div class="shorts-header">
+    <i class="fa-solid fa-bolt"></i>
+    <h2>Shorts</h2>
+  </div>
 
-  <!-- SHORTS -->
-  <section class="shorts-section">
-
-    <div class="shorts-header">
-      <i class="fa-solid fa-bolt"></i>
-      <h2>Shorts</h2>
-    </div>
-
-    <div class="shorts-row" id="shortsRow"></div>
-
-  </section>
+  <div class="shorts-row" id="shortsRow"></div>
+</section>
 
 </main>
 
