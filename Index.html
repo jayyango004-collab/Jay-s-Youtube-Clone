@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>YouTube Clone Final</title>
+
+<link rel="stylesheet" href="style.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+
+  <div class="left">
+    <i id="menuBtn" class="fa-solid fa-bars"></i>
+    <i class="fa-brands fa-youtube yt"></i>
+    <h3>YouTube</h3>
+  </div>
+
+  <div class="search">
+    <input id="searchInput" placeholder="Search"/>
+    <button><i class="fa fa-search"></i></button>
+  </div>
+
+  <div class="right">
+
+    <span class="material-symbols-outlined">video_call</span>
+
+    <div class="notification-container">
+      <span class="material-symbols-outlined">notifications_unread</span>
+      <span class="notification-badge">4</span>
+    </div>
+
+    <img src="images/profile.jpg" class="profile-pic"/>
+
+    <button id="darkBtn"><i class="fa-solid fa-moon"></i></button>
+  </div>
+
+</header>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+<!-- SIDEBAR -->
+<aside id="sidebar" class="sidebar">
+
+  <div class="section">
+    <p><i class="fa-solid fa-house"></i> Home</p>
+    <p><i class="fa-solid fa-bolt"></i> Shorts</p>
+    <p><i class="fa-solid fa-play"></i> Subscriptions</p>
+  </div>
+
+  <hr/>
+
+  <!-- SUBSCRIPTIONS -->
+  <div class="section">
+    <p id="subsBtn">Subscriptions <span id="subsArrow">▶</span></p>
+
+<div id="subsList" class="subs-list hidden">
+  <div class="sub">Kaycee Rice</div>
+  <div class="sub">Travis Stancil</div>
+  <div class="sub">Ballet Co</div>
+  <div class="sub">Nollywood Movies</div>
+</div>
+   
+  <hr/>
+
+  <!-- YOU -->
+  <div class="section">
+    <p id="youBtn">You ▶</p>
+    <div id="youList" class="hidden">
+      <p>History</p>
+      <p>Watch Later</p>
+      <p>Liked Videos</p>
+    </div>
+  </div>
+
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+  <div class="categories" id="categories"></div>
+
+  <section id="videoGrid"></section>
+
+  <!-- SHORTS -->
+  <section class="shorts-section">
+
+    <div class="shorts-header">
+      <i class="fa-solid fa-bolt"></i>
+      <h2>Shorts</h2>
+    </div>
+
+    <div class="shorts-row" id="shortsRow"></div>
+
+  </section>
+
+</main>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
