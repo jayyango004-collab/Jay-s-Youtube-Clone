@@ -196,6 +196,22 @@ document.getElementById("darkBtn")?.addEventListener("click", () => {
   document.body.classList.toggle("dark");
 });
 
+const categoryContainer = document.querySelector(".categories");
+
+document.querySelector(".right-btn").addEventListener("click", () => {
+  categoryContainer.scrollBy({
+    left: 300,
+    behavior: "smooth"
+  });
+});
+
+document.querySelector(".left-btn").addEventListener("click", () => {
+  categoryContainer.scrollBy({
+    left: -300,
+    behavior: "smooth"
+  });
+});
+
 /* INIT */
 renderVideos();
 renderShorts();

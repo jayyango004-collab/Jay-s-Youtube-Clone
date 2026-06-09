@@ -1,160 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YouTube Clone Final</title>
 
-<link rel="stylesheet" href="style.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet"
+href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header class="header">
 
   <div class="left">
-    <i class="fa-solid fa-bars"></i>
-    <i class="fa-brands fa-youtube yt"></i>
+    <i id="menuBtn" class="fa-solid fa-bars"></i>
+    <i class="fa-brands fa-youtube yt-logo"></i>
     <h3>YouTube</h3>
   </div>
 
-<div class="search">
-  <div class="search-box">
-    <input id="searchInput" placeholder="Search"/>
+  <div class="search">
 
-    <button class="search-btn">
-      <i class="fa fa-search"></i>
-    </button>
-  </div>
+    <div class="search-box">
+      <input id="searchInput" type="text" placeholder="Search">
 
-  <button class="mic-btn">
-    <i class="fa-solid fa-microphone"></i>
-  </button>
-</div>
-
-  <div class="right">
-    <span class="material-symbols-outlined">video_call</span>
-
-    <div class="notification-container">
-      <span class="material-symbols-outlined">notifications_unread</span>
-      <span class="notification-badge">4</span>
+      <button class="search-btn">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
     </div>
 
-    <img src="images/profile.jpg" class="profile-pic"/>
-    <button id="darkBtn"><i class="fa-solid fa-moon"></i></button>
+    <button class="mic-btn">
+      <i class="fa-solid fa-microphone"></i>
+    </button>
+
+  </div>
+
+  <div class="right">
+
+    <button class="create-btn">
+      <i class="fa-solid fa-plus"></i>
+      <span>Create</span>
+    </button>
+
+    <div class="notification-container">
+      <span class="material-symbols-outlined">
+        notifications_unread
+      </span>
+      <span class="notification-badge">28</span>
+    </div>
+
+   <img src="images/IMG_3915.jpg" class="profile-pic" alt="Profile">
+
+    <button id="darkBtn">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+
   </div>
 
 </header>
 
+<!-- LAYOUT -->
 <div class="layout">
 
-<!-- SIDEBAR -->
-<aside id="sidebar" class="sidebar">
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="sidebar">
+
+    <div class="section">
+      <p class="item"><i class="fa-solid fa-house"></i> Home</p>
+      <p class="item"><i class="fa-solid fa-bolt"></i> Shorts</p>
+      <p class="item"><i class="fa-solid fa-play"></i> Subscriptions</p>
+
+    </div>
+
+    <hr>
+
+    <div class="section">
+
+      <p id="subsBtn" class="toggle">
+        Subscriptions>
+      </p>
+
+      <div id="subsList" class="sub-list">
+
+        <p class="sub-item">Kaycee Rice</p>
+        <p class="sub-item">Travis Stancil with Stance Productions</p>
+        <p class="sub-item">Paradosi Ballet Company</p>
+        <p class="sub-item">YUMMY NOLLYWOOD MOVIES</p>
+        <p class="sub-item">Echelonemporiotm</p>
+        <p class="sub-item">BodyKinect by Kendall</p>
+        <p class="sub-item">Hillsong Church Africa</p>
+        <p class="sub-item">3C Live Official</p>
+        <p class="sub-item">Julia Michaels</p>
+        <p class="sub-item">Start Up De Acasa</p>
+        <p class="sub-item">Gurpreet Illusion Town</p>
+        <p class="sub-item">YAWA SKITS</p>
+        <p class="sub-item">Tamaris</p>
+        <p class="sub-item">Spoke</p>
+        <p class="sub-item">Maizen</p>
+
+      </div>
+
+    </div>
+
+    <hr>
+
+    <div class="section">
+
+      <p id="youBtn" class="toggle">
+        You>
+      </p>
+
+      <div id="youList" class="sub-list">
+
+        <p class="sub-item">Your channel</p>
+        <p class="sub-item">History</p>
+        <p class="sub-item">Playlists</p>
+        <p class="sub-item">Watch Later</p>
+        <p class="sub-item">Liked videos</p>
+        <p class="sub-item">Your videos</p>
+        <p class="sub-item">Downloads</p>
+
+      </div>
+
+    </div>
+
+    <hr>
+
+    <div class="section">
+      <p class="title">Explore</p>
+      <p class="item">Music</p>
+      <p class="item">Gaming</p>
+      <p class="item">News</p>
+      <p class="item">Show More</p>
+    </div>
+
+    <hr>
+
+    <div class="section footer">
+      <p>About • Press • Copyright</p>
+      <p>Terms • Privacy • Policy</p>
+      <p>jael © 2026 Google LLC</p>
+    </div>
+
+  </aside>
 
   <!-- MAIN -->
-  <div class="section">
-    <p class="item"><i class="fa-solid fa-house"></i> Home</p>
-    <p class="item"><i class="fa-solid fa-bolt"></i> Shorts</p>
-    <p class="item"><i class="fa-solid fa-play"></i> Subscriptions</p>
-  </div>
+  <main class="main">
 
-  <hr/>
+    <!-- CATEGORY BAR -->
+    <div class="category-wrapper">
 
-  <!-- SUBSCRIPTIONS -->
-  <div class="section">
+      <button class="scroll-btn left-btn">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
 
-    <p id="subsBtn" class="toggle">
-      Subscriptions <span class="arrow">▶</span>
-    </p>
+      <div class="categories" id="categories">
 
-    <div id="subsList" class="sub-list hidden">
+        <button class="active">All</button>
+        <button>Music</button>
+        <button>Movies</button>
+        <button>Sports</button>
+        <button>Coding</button>
+        <button>Fashion</button>
+        <button>Nollywood</button>
+        <button>Podcasts</button>
+        <button>News</button>
+        <button>Comedy</button>
+        <button>Dance</button>
+        <button>Recently Uploaded</button>
+        <button>New To You</button>
 
-      <p class="sub-item">Kaycee Rice</p>
-      <p class="sub-item">Travis Stancil with Stance Productions</p>
-      <p class="sub-item">Paradosi Ballet Company</p>
-      <p class="sub-item">YUMMY NOLLYWOOD MOVIES</p>
-      <p class="sub-item">Echelonemporiotm</p>
-      <p class="sub-item">BodyKinect by Kendall</p>
-      <p class="sub-item">Hillsong Church Africa</p>
-      <p class="sub-item">3C Live Official</p>
-      <p class="sub-item">Julia Michaels</p>
-      <p class="sub-item">Start Up De Acasa</p>
-      <p class="sub-item">Gurpreet Illusion Town</p>
-      <p class="sub-item">YAWA SKITS</p>
-      <p class="sub-item">Tamaris</p>
-      <p class="sub-item">Spoke</p>
-      <p class="sub-item">Maizen</p>
+      </div>
 
-      <p class="sub-item small">Show fewer</p>
+      <button class="scroll-btn right-btn">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
 
     </div>
-  </div>
 
-  <hr/>
+    <!-- VIDEO GRID -->
+    <section id="videoGrid" class="grid"></section>
 
-  <!-- YOU -->
-  <div class="section">
+    <!-- SHORTS -->
+    <section class="shorts-section">
 
-    <p id="youBtn" class="toggle">
-      You <span class="arrow">▶</span>
-    </p>
+      <div class="shorts-header">
+        <i class="fa-solid fa-bolt"></i>
+        <h2>Shorts</h2>
+      </div>
 
-    <div id="youList" class="sub-list hidden">
+      <div id="shortsRow" class="shorts-row"></div>
 
-      <p class="sub-item">Your channel</p>
-      <p class="sub-item">History</p>
-      <p class="sub-item">Playlists</p>
-      <p class="sub-item">Watch Later</p>
-      <p class="sub-item">Liked videos</p>
-      <p class="sub-item">Your videos</p>
-      <p class="sub-item">Downloads</p>
+    </section>
 
-    </div>
-  </div>
-
-  <hr/>
-
-  <!-- EXPLORE -->
-  <div class="section">
-    <p class="title">Explore</p>
-    <p class="item">Music</p>
-    <p class="item">Gaming</p>
-    <p class="item">News</p>
-    <p class="item">Show more</p>
-  </div>
-
-  <hr/>
-
-  <!-- FOOTER -->
-  <div class="section footer">
-    <p>About • Press • Copyright</p>
-    <p>Terms • Privacy • Policy</p>
-    <p>© 2026 Google LLC</p>
-  </div>
-
-</aside>
-
-  
-<!-- MAIN -->
-<main class="main">
-
-<section id="videoGrid"></section>
-
-<section class="shorts-section">
-  <div class="shorts-header">
-    <i class="fa-solid fa-bolt"></i>
-    <h2>Shorts</h2>
-  </div>
-
-  <div class="shorts-row" id="shortsRow"></div>
-</section>
-
-</main>
+  </main>
 
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
