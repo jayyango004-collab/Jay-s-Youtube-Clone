@@ -3,15 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YouTube Clone Final</title>
+<title>YouTube Clone Fixed</title>
 
 <link rel="stylesheet" href="style.css">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<link rel="stylesheet"
-href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
 </head>
 
 <body>
@@ -20,16 +16,17 @@ href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
 <header class="header">
 
   <div class="left">
-    <i id="menuBtn" class="fa-solid fa-bars"></i>
+    <button id="menuBtn" class="menu-btn">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
     <i class="fa-brands fa-youtube yt-logo"></i>
-    <h3>YouTube</h3>
+    <h3 class="yt-text">YouTube</h3>
   </div>
 
   <div class="search">
-
     <div class="search-box">
-      <input id="searchInput" type="text" placeholder="Search">
-
+      <input id="searchInput" placeholder="Search videos...">
       <button class="search-btn">
         <i class="fa-solid fa-magnifying-glass"></i>
       </button>
@@ -38,7 +35,6 @@ href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
     <button class="mic-btn">
       <i class="fa-solid fa-microphone"></i>
     </button>
-
   </div>
 
   <div class="right">
@@ -49,161 +45,152 @@ href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
     </button>
 
     <div class="notification-container">
-      <span class="material-symbols-outlined">
-        notifications_unread
-      </span>
+      <span class="material-symbols-outlined">notifications</span>
       <span class="notification-badge">28</span>
     </div>
 
-   <img src="images/IMG_3915.jpg" class="profile-pic" alt="Profile">
+    <img src="images/IMG_3915.jpg" class="profile-pic">
 
-    <button id="darkBtn">
-      <i class="fa-solid fa-moon"></i>
-    </button>
-
+    <button id="darkBtn" class="dark-btn">
+  <i class="fa-solid fa-moon"></i>
+</button>
   </div>
 
 </header>
 
-<!-- LAYOUT -->
+<!-- CATEGORY BAR -->
+<div class="category-wrapper">
+
+  <button class="scroll-btn left-btn"><i class="fa-solid fa-chevron-left"></i></button>
+
+  <div class="categories">
+    <button class="active">All</button>
+    <button>Music</button>
+    <button>Movies</button>
+    <button>Sports</button>
+    <button>Coding</button>
+    <button>Fashion</button>
+    <button>Nollywood</button>
+    <button>Podcasts</button>
+    <button>News</button>
+    <button>Comedy</button>
+    <button>Dance</button>
+    <button>Recently Uploaded</button>
+    <button>New To You</button>
+  </div>
+
+  <button class="scroll-btn right-btn"><i class="fa-solid fa-chevron-right"></i></button>
+
+</div>
+
 <div class="layout">
 
-  <!-- SIDEBAR -->
-  <aside id="sidebar" class="sidebar">
+<!-- SIDEBAR -->
+<aside class="sidebar">
 
-    <div class="section">
-      <p class="item"><i class="fa-solid fa-house"></i> Home</p>
-      <p class="item"><i class="fa-solid fa-bolt"></i> Shorts</p>
-      <p class="item"><i class="fa-solid fa-play"></i> Subscriptions</p>
+  <div class="section">
+    <p class="item"><i class="fa-solid fa-house"></i> Home</p>
+    <p class="item"><i class="fa-solid fa-bolt"></i> Shorts</p>
+    <p class="item"><i class="fa-solid fa-play"></i> Subscriptions</p>
+  </div>
 
+  <hr>
+
+  <!-- SUBSCRIPTIONS -->
+  <div class="section">
+    <p id="subsBtn" class="toggle">
+  Subscriptions <span class="arrow">></span>
+</p>
+
+    <div id="subsList" class="sub-list">
+      <p class="sub-item">Kaycee Rice</p>
+      <p class="sub-item">Travis Stancil</p>
+      <p class="sub-item">Paradosi Ballet</p>
+      <p class="sub-item">YUMMY NOLLYWOOD</p>
+      <p class="sub-item hidden-more">Echelonemporiotm</p>
+      <p class="sub-item hidden-more">BodyKinect</p>
+      <p class="sub-item hidden-more">Hillsong Africa</p>
+      <p class="sub-item hidden-more">3C Live</p>
+      <p id="seeMore" class="show-more">
+  Show more <span class="arrow-down">▼</span>
+</p>
     </div>
+  </div>
 
-    <hr>
+  <hr>
 
-    <div class="section">
+  <!-- YOU -->
+  <div class="section">
+    <p id="youBtn" class="toggle">
+  You <span class="arrow">></span>
+</p>
 
-      <p id="subsBtn" class="toggle">
-        Subscriptions>
-      </p>
-
-      <div id="subsList" class="sub-list">
-
-        <p class="sub-item">Kaycee Rice</p>
-        <p class="sub-item">Travis Stancil with Stance Productions</p>
-        <p class="sub-item">Paradosi Ballet Company</p>
-        <p class="sub-item">YUMMY NOLLYWOOD MOVIES</p>
-        <p class="sub-item">Echelonemporiotm</p>
-        <p class="sub-item">BodyKinect by Kendall</p>
-        <p class="sub-item">Hillsong Church Africa</p>
-        <p class="sub-item">3C Live Official</p>
-        <p class="sub-item">Julia Michaels</p>
-        <p class="sub-item">Start Up De Acasa</p>
-        <p class="sub-item">Gurpreet Illusion Town</p>
-        <p class="sub-item">YAWA SKITS</p>
-        <p class="sub-item">Tamaris</p>
-        <p class="sub-item">Spoke</p>
-        <p class="sub-item">Maizen</p>
-
-      </div>
-
+    <div id="youList" class="sub-list">
+      <p class="sub-item">Your channel</p>
+      <p class="sub-item">History</p>
+      <p class="sub-item">Watch Later</p>
+      <p class="sub-item">Liked videos</p>
     </div>
+  </div>
 
-    <hr>
+  <hr>
 
-    <div class="section">
+<div class="section">
+  <p class="title">Explore</p>
 
-      <p id="youBtn" class="toggle">
-        You>
-      </p>
+  <p class="item">Music</p>
+  <p class="item">Gaming</p>
+  <p class="item">News</p>
+</div>
 
-      <div id="youList" class="sub-list">
+<hr>
 
-        <p class="sub-item">Your channel</p>
-        <p class="sub-item">History</p>
-        <p class="sub-item">Playlists</p>
-        <p class="sub-item">Watch Later</p>
-        <p class="sub-item">Liked videos</p>
-        <p class="sub-item">Your videos</p>
-        <p class="sub-item">Downloads</p>
+<div class="section">
+  <p class="title">More from YouTube</p>
 
-      </div>
+  <p class="item">YouTube Premium</p>
+  <p class="item">YouTube Music</p>
+  <p class="item">YouTube Kids</p>
+</div>
 
-    </div>
+<hr>
 
-    <hr>
+<div class="footer">
+  <p>About Press Copyright</p>
+  <p>Contact us Creator Advertise</p>
+  <p>Developers</p>
 
-    <div class="section">
-      <p class="title">Explore</p>
-      <p class="item">Music</p>
-      <p class="item">Gaming</p>
-      <p class="item">News</p>
-      <p class="item">Show More</p>
-    </div>
+  <br>
 
-    <hr>
+  <p>Terms Privacy Policy & Safety</p>
+  <p>How YouTube works</p>
+  <p>Test new features</p>
 
-    <div class="section footer">
-      <p>About • Press • Copyright</p>
-      <p>Terms • Privacy • Policy</p>
-      <p>jael © 2026 Google LLC</p>
-    </div>
+  <br>
 
-  </aside>
+  <p>© 2026 Google LLC</p>
+</div>
 
-  <!-- MAIN -->
-  <main class="main">
+</aside>
 
-    <!-- CATEGORY BAR -->
-    <div class="category-wrapper">
+<!-- MAIN -->
+<main class="main">
 
-      <button class="scroll-btn left-btn">
-        <i class="fa-solid fa-chevron-left"></i>
-      </button>
+<section id="videoGrid"></section>
 
-      <div class="categories" id="categories">
+<section class="shorts-section">
+  <div class="shorts-header">
+    <i class="fa-solid fa-bolt"></i>
+    <h2>Shorts</h2>
+  </div>
 
-        <button class="active">All</button>
-        <button>Music</button>
-        <button>Movies</button>
-        <button>Sports</button>
-        <button>Coding</button>
-        <button>Fashion</button>
-        <button>Nollywood</button>
-        <button>Podcasts</button>
-        <button>News</button>
-        <button>Comedy</button>
-        <button>Dance</button>
-        <button>Recently Uploaded</button>
-        <button>New To You</button>
+  <div id="shortsRow"></div>
+</section>
 
-      </div>
-
-      <button class="scroll-btn right-btn">
-        <i class="fa-solid fa-chevron-right"></i>
-      </button>
-
-    </div>
-
-    <!-- VIDEO GRID -->
-    <section id="videoGrid" class="grid"></section>
-
-    <!-- SHORTS -->
-    <section class="shorts-section">
-
-      <div class="shorts-header">
-        <i class="fa-solid fa-bolt"></i>
-        <h2>Shorts</h2>
-      </div>
-
-      <div id="shortsRow" class="shorts-row"></div>
-
-    </section>
-
-  </main>
+</main>
 
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>

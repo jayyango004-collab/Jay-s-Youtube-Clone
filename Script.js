@@ -1,12 +1,7 @@
 const grid = document.getElementById("videoGrid");
 const shortsRow = document.getElementById("shortsRow");
 
-/* SAFE CHECK (prevents silent crash) */
-if (!grid || !shortsRow) {
-  console.error("Missing #videoGrid or #shortsRow in HTML");
-}
-
-/* VIDEOS (UNCHANGED) */
+/* VIDEOS */
 const videos = [
 {
 title:"JavaScript Crash Course",
@@ -93,6 +88,7 @@ title:"R&B Playlist",
 channel:"Chill R&B Tapes",
 views:"2.5M views",
 date:"2 months ago",
+duration:"1:10:00",
 thumbnail:"https://img.youtube.com/vi/i8W-LdXKT6s/hqdefault.jpg",
 url:"https://www.youtube.com/watch?v=i8W-LdXKT6s",
 category:"Music"
@@ -134,83 +130,112 @@ url:"https://www.youtube.com/shorts/qHjr_ldwCg4"
 ];
 
 /* RENDER VIDEOS */
-function renderVideos() {
-  grid.innerHTML = videos.map(v => `
+function renderVideos(videoList = videos) {
+
+  grid.innerHTML = videoList.map(v => `
     <a class="video-card" href="${v.url}" target="_blank">
+
       <div class="thumb-wrapper">
-        <img src="${v.thumbnail}">
+        <img src="${v.thumbnail}" alt="${v.title}">
         <span class="duration">${v.duration || ""}</span>
       </div>
 
       <div class="video-info">
-        <div class="video-text">
-          <h4>${v.title}</h4>
-          <p>${v.channel} • ${v.views} • ${v.date}</p>
-        </div>
-      </div>
+
+  <div class="video-text">
+    <h4>${v.title}</h4>
+    <p>${v.channel}</p>
+    <p>${v.views} • ${v.date}</p>
+  </div>
+
+  <div class="video-menu">
+    <i class="fa-solid fa-ellipsis-vertical"></i>
+  </div>
+
+</div>
+
     </a>
   `).join("");
+
 }
+
 
 /* RENDER SHORTS */
-function renderShorts() {
-  shortsRow.innerHTML = shorts.map(s => `
-    <a class="shorts-card" href="${s.url}" target="_blank">
-      <img src="${s.thumbnail}">
-    </a>
+function renderShorts(){
+if(!shortsRow) return;
+
+shortsRow.innerHTML = shorts.map(s => `     <a class="shorts-card" href="${s.url}" target="_blank">       <img src="${s.thumbnail}" alt="${s.title}">       <h4>${s.title}</h4>     </a>
   `).join("");
 }
 
-/* SIDEBAR */
-const subsBtn = document.getElementById("subsBtn");
-const subsList = document.getElementById("subsList");
-const subsArrow = document.querySelector("#subsBtn .arrow");
+/* SEARCH */
+const searchInput = document.getElementById("searchInput");
 
-const youBtn = document.getElementById("youBtn");
-const youList = document.getElementById("youList");
+if(searchInput){
+searchInput.addEventListener("keyup", () => {
 
-const youArrow = document.querySelector("#youBtn .arrow");
+```
+const term = searchInput.value.toLowerCase();
 
-subsBtn.addEventListener("click", () => {
-  subsList.classList.toggle("hidden");
+const filtered = videos.filter(video =>
+  video.title.toLowerCase().includes(term) ||
+  video.channel.toLowerCase().includes(term) ||
+  video.category.toLowerCase().includes(term)
+);
 
-  if (subsList.classList.contains("hidden")) {
-    subsArrow.textContent = "▶";
-  } else {
-    subsArrow.textContent = "▼";
-  }
+renderVideos(filtered);
+```
+
 });
-
-youBtn.addEventListener("click", () => {
-  youList.classList.toggle("hidden");
-
-  if (youList.classList.contains("hidden")) {
-    youArrow.textContent = "▶";
-  } else {
-    youArrow.textContent = "▼";
-  }
-});
+}
 
 /* DARK MODE */
-document.getElementById("darkBtn")?.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
+const darkBtn = document.getElementById("darkBtn");
+
+if(darkBtn){
+darkBtn.addEventListener("click", () => {
+document.body.classList.toggle("dark");
 });
+}
 
-const categoryContainer = document.querySelector(".categories");
+/* SIDEBAR TOGGLE */
+const subsBtn = document.getElementById("subsBtn");
+const youBtn = document.getElementById("youBtn");
+const seeMore = document.getElementById("seeMore");
 
-document.querySelector(".right-btn").addEventListener("click", () => {
-  categoryContainer.scrollBy({
-    left: 300,
-    behavior: "smooth"
+const subsList = document.getElementById("subsList");
+const youList = document.getElementById("youList");
+
+let moreOpen = false;
+
+/* SUBSCRIPTIONS TOGGLE */
+if(subsBtn){
+  subsBtn.addEventListener("click", () => {
+    subsList.classList.toggle("hidden");
   });
-});
+}
 
-document.querySelector(".left-btn").addEventListener("click", () => {
-  categoryContainer.scrollBy({
-    left: -300,
-    behavior: "smooth"
+/* YOU TOGGLE */
+if(youBtn){
+  youBtn.addEventListener("click", () => {
+    youList.classList.toggle("hidden");
   });
-});
+}
+
+/* SHOW MORE */
+if(seeMore){
+  seeMore.addEventListener("click", () => {
+    moreOpen = !moreOpen;
+
+    document.querySelectorAll(".hidden-more").forEach(el => {
+      el.style.display = moreOpen ? "block" : "none";
+    });
+
+    seeMore.innerHTML = moreOpen
+      ? 'Show less <span>▲</span>'
+      : 'Show more <span>▼</span>';
+  });
+}
 
 /* INIT */
 renderVideos();
